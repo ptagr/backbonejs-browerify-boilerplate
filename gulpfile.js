@@ -22,7 +22,7 @@ function browserifyShare(){
 
 function bundleShare(b) {
 	b.bundle()
-	.pipe(source('backbone-tutorial.js'))
+	.pipe(source('main.js'))
 	.pipe(gulp.dest('./public/javascripts'));
 }
 
