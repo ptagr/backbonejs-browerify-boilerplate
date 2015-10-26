@@ -1,0 +1,19 @@
+{
+  "name": "backbone-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial for developing backbone apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Punit Agrawal",
+  "license": "ISC",
+  "devDependencies": {
+    "backbone": "^1.2.3",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "hbsfy": "^2.3.1",
+    "jquery": "^2.1.4",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
