@@ -1,5 +1,5 @@
 var Backbone = require('backbone');
-var Todo = require('../models/todo')
+var Todo = require('../models/todo');
 Backbone.$ = $;
 
 

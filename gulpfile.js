@@ -1,19 +1,31 @@
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
+var watchify = require('watchify');
+
+var jsxFiles = './assets/**/*.jsx';
+var jsFiles = './assets/**/*.js';
 
 
 gulp.task('browserify', function() {
-  var b = browserify('./assets/js/index.js', {debug: true})
-  return b.bundle()
-    .pipe(source('backbone-tutorial.js'))
-    .pipe(gulp.dest('./public/javascripts'))
-});
+	browserifyShare();
+	});
 
-gulp.task('watch', function() {
-  gulp.watch('./assets/**/*.js', ['browserify']);
-});
+function browserifyShare(){
+	var b = browserify('./assets/js/index.js', {debug: true})
+	b = watchify(b);
+	b.on('update', function(){
+		bundleShare(b);
+		});
+	bundleShare(b);
+}
+
+function bundleShare(b) {
+	b.bundle()
+	.pipe(source('backbone-tutorial.js'))
+	.pipe(gulp.dest('./public/javascripts'));
+}
 
 // Tasks
 gulp.task('build', ['browserify']);
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build']);
