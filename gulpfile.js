@@ -2,12 +2,14 @@ var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var livereload = require('gulp-livereload');
+
 
 var jsxFiles = './assets/**/*.jsx';
 var jsFiles = './assets/**/*.js';
 
 
-gulp.task('browserify', function() {
+gulp.task('browserify-watch', function() {
 	browserifyShare();
 	});
 
@@ -23,9 +25,14 @@ function browserifyShare(){
 function bundleShare(b) {
 	b.bundle()
 	.pipe(source('main.js'))
-	.pipe(gulp.dest('./public/javascripts'));
+	.pipe(gulp.dest('./public/javascripts'))
+	.pipe(livereload());
 }
 
 // Tasks
-gulp.task('build', ['browserify']);
-gulp.task('default', ['build']);
+gulp.task('watch', ['browserify-watch'], function() {
+	// Start live reload server
+	livereload.listen();
+	});
+
+gulp.task('default', ['watch']);

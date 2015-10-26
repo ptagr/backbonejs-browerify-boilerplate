@@ -12,6 +12,7 @@
     "backbone": "^1.2.3",
     "browserify": "^11.2.0",
     "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
     "hbsfy": "^2.3.1",
     "jquery": "^2.1.4",
     "jshint": "^2.8.0",
